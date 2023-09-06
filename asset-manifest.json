@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/test_todo_list/static/css/main.47cfcd92.css",
+    "main.js": "/test_todo_list/static/js/main.4b7ed143.js",
+    "index.html": "/test_todo_list/index.html",
+    "static/media/icons8-галочка.svg": "/test_todo_list/static/media/icons8-галочка.4c576e35a877cc755a92.svg",
+    "main.47cfcd92.css.map": "/test_todo_list/static/css/main.47cfcd92.css.map",
+    "main.4b7ed143.js.map": "/test_todo_list/static/js/main.4b7ed143.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47cfcd92.css",
+    "static/js/main.4b7ed143.js"
+  ]
+}
