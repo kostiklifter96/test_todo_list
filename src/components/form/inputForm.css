@@ -1,0 +1,43 @@
+.inputForm {
+    margin-top: 20px;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px rgb(219, 219, 219);
+    border-top: none;
+    border-left: 1px solid rgb(219, 219, 219);
+    border-right: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    width: 685px;
+    height: 80px;
+    font-size: 34px;
+    font-weight: 300;
+    padding-left: 75px;
+    z-index: 0;
+    outline: none;
+}
+
+.inputForm:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.inputForm:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.inputForm::placeholder {
+    color: rgb(232, 232, 232);
+    font-style: italic;
+    font-weight: 100;
+}
+
+.labelInput {
+    position: absolute;
+    left: 640px;
+    top: 50px;
+    z-index: 1;
+}
+
+.labelSVG {
+    transform: rotate(90deg);
+    color: #e8e8e8;
+}
