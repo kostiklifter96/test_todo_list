@@ -4,9 +4,9 @@ import { TodoItem } from "./TodoItem";
 import "./todoList.css";
 
 export const TodoList = ({ filtered, onChangeChecked }: ITodoList) => {
-    if (filtered.length < 1) {
-        return null;
-    }
+    // if (filtered.length < 1) {
+    //     return null;
+    // }
     return (
         <ul className='todoList'>
             <TransitionGroup className='todo-list'>

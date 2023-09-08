@@ -7,17 +7,17 @@ export const TodoItem = ({ id, checked, text, onChangeChecked }: ITodoItem) => {
 
     return (
         <li className='todoItem'>
-            <label className='todoLabel'>
+            <label className='todoItemLabel'>
                 <input
                     type='checkbox'
                     checked={checked}
                     onChange={hundlerChangeChecked}
-                    className={`customCheckbox `}
+                    className={`todoItemCustomCheckbox `}
                 />
                 <span className='fake'></span>
             </label>
 
-            <p className={`textItem ${checked && " done"}`}>{text}</p>
+            <div className={`todoItemText ${checked && " done"}`}>{text}</div>
         </li>
     );
 };

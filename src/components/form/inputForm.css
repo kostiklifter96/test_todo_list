@@ -1,14 +1,16 @@
-.inputForm {
+.form {
     margin-top: 20px;
     position: relative;
-    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 685px;
+    grid-template-rows: 80px;
+}
+.formInput {
     box-shadow: 0 0 15px rgb(219, 219, 219);
     border-top: none;
     border-left: 1px solid rgb(219, 219, 219);
     border-right: 1px solid rgb(219, 219, 219);
     border-bottom: 1px solid rgb(219, 219, 219);
-    width: 685px;
-    height: 80px;
     font-size: 34px;
     font-weight: 300;
     padding-left: 75px;
@@ -16,28 +18,50 @@
     outline: none;
 }
 
-.inputForm:hover {
+.formInput:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.inputForm:focus {
+.formInput:focus {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.inputForm::placeholder {
+.formInput::placeholder {
     color: rgb(232, 232, 232);
     font-style: italic;
     font-weight: 100;
 }
 
-.labelInput {
+.formArrow {
     position: absolute;
-    left: 640px;
-    top: 50px;
+    left: 20px;
+    top: 34px;
     z-index: 1;
 }
 
-.labelSVG {
+.formArrowSVG {
     transform: rotate(90deg);
     color: #e8e8e8;
+    transition: 1s;
+}
+
+.right {
+    transform: rotate(0deg);
+}
+
+@media (max-width: 700px) {
+    .form {
+        grid-template-columns: 500px;
+        grid-template-rows: 80px;
+    }
+}
+
+@media (max-width: 400px) {
+    .form {
+        grid-template-columns: 368px;
+        grid-template-rows: 80px;
+    }
+    .formInput {
+        font-size: 26px;
+    }
 }

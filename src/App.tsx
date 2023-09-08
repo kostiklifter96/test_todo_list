@@ -5,11 +5,7 @@ import { TodoList } from "./components/todos/TodoList";
 import { Filter, ITodo } from "./types/types";
 
 function App() {
-    const [todoList, setTodoList] = useState<ITodo[]>([
-        // { id: "23", checked: true, text: "qwert" },
-        // { id: "23f", checked: true, text: "qwert" },
-        // { id: "23f", checked: true, text: "qwert" },
-    ]);
+    const [todoList, setTodoList] = useState<ITodo[]>([]);
     const [filtered, setFiltered] = useState<ITodo[]>(todoList);
 
     useEffect(() => {
@@ -56,15 +52,15 @@ function App() {
     };
 
     return (
-        <>
-            <InputForm onSubmit={onSubmit} />
+        <div className='app'>
+            <InputForm onSubmit={onSubmit} filtered={filtered} />
             <TodoList filtered={filtered} onChangeChecked={onChangeChecked} />
             <FooterNav
                 todoFilter={todoFilter}
                 filtered={filtered}
                 onClickDeleteCompleted={onClickDeleteCompleted}
             />
-        </>
+        </div>
     );
 }
 

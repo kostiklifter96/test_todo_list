@@ -6,6 +6,7 @@ export interface ITodo {
 
 export interface IInputForm {
     onSubmit: (data: ITodo) => void;
+    filtered: ITodo[];
 }
 
 export type FormFields = {

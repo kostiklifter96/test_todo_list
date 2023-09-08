@@ -1,17 +1,18 @@
 .todoList {
+    display: grid;
+    grid-template-columns: 685px;
     margin-top: 0;
     margin-bottom: 0;
-    box-sizing: border-box;
-    width: 685px;
     padding: 0;
 }
 
 .todoItem {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50px 600px;
+    grid-auto-rows: minmax(75px, auto);
     align-items: center;
-    width: 100%;
-    height: 80px;
-    box-sizing: border-box;
+    column-gap: 25px;
+
     border-top: none;
     border-left: 1px solid rgb(219, 219, 219);
     border-right: 1px solid rgb(219, 219, 219);
@@ -19,16 +20,24 @@
     background: #fff;
 }
 
-.todoLabel {
+.todoItemText {
+    word-wrap: break-word;
+    font-weight: 600;
+    font-size: 25px;
+    color: rgb(52, 50, 50);
+    transition: 0.7s;
+}
+
+.todoItemLabel {
     padding-left: 10px;
 }
 
-.customCheckbox {
+.todoItemCustomCheckbox {
     display: none;
 }
 
 .fake {
-    display: inline-block;
+    display: block;
     width: 40px;
     height: 40px;
     border: 1px solid rgb(219, 219, 219);
@@ -51,17 +60,10 @@
     transition: 0.5s;
 }
 
-.customCheckbox:checked + .fake::before {
+.todoItemCustomCheckbox:checked + .fake::before {
     opacity: 1;
 }
 
-.textItem {
-    padding-left: 25px;
-    font-weight: 600;
-    font-size: 25px;
-    color: rgb(52, 50, 50);
-    transition: 0.7s;
-}
 .done {
     text-decoration: line-through;
     color: rgb(232, 232, 232);
@@ -80,4 +82,24 @@
 .item-exit-active {
     opacity: 0;
     transition: opacity 500ms ease-in;
+}
+
+@media (max-width: 700px) {
+    .todoList {
+        grid-template-columns: 500px;
+    }
+
+    .todoItem {
+        grid-template-columns: 50px 430px;
+    }
+}
+
+@media (max-width: 400px) {
+    .todoList {
+        grid-template-columns: 368px;
+    }
+
+    .todoItem {
+        grid-template-columns: 50px 290px;
+    }
 }

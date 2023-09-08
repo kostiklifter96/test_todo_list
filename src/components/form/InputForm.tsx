@@ -1,11 +1,15 @@
 import { FormFields, IInputForm } from "../../types/types";
 import "./inputForm.css";
 
-export const InputForm = ({ onSubmit }: IInputForm) => {
+export const InputForm = ({ onSubmit, filtered }: IInputForm) => {
     const handlerSubmit = (
         e: React.FormEvent<HTMLFormElement & FormFields>,
     ) => {
         e.preventDefault();
+        if (!e.currentTarget.text?.value) {
+            alert("Enter the todo");
+            return;
+        }
         const data = {
             id: String(Date.now()),
             text: e.currentTarget.text?.value,
@@ -18,10 +22,12 @@ export const InputForm = ({ onSubmit }: IInputForm) => {
     };
 
     return (
-        <form onSubmit={handlerSubmit}>
-            <label htmlFor='input' className='labelInput'>
+        <form onSubmit={handlerSubmit} className='form'>
+            <div className='formArrow'>
                 <svg
-                    className='labelSVG'
+                    className={`formArrowSVG  ${
+                        filtered.length < 1 && " right"
+                    }`}
                     version='1.0'
                     xmlns='http://www.w3.org/2000/svg'
                     width='20pt'
@@ -42,11 +48,11 @@ c-1505 -1644 -2755 -3008 -2777 -3031 l-41 -43 2356 0 2357 0 2775 3031 2776
                         />
                     </g>
                 </svg>
-            </label>
+            </div>
             <input
                 id='input'
                 type='text'
-                className='inputForm'
+                className='formInput'
                 name='text'
                 placeholder='What needs to be done?'
             />

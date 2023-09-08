@@ -1,5 +1,6 @@
 import { Filter, IFooterNav } from "../../types/types";
 import "./footerNav.css";
+
 export const FooterNav = ({
     filtered,
     todoFilter,
@@ -7,7 +8,7 @@ export const FooterNav = ({
 }: IFooterNav) => {
     return (
         <div className='footerNav'>
-            <div>
+            <div className='itemsLeft'>
                 {filtered.filter((el) => el.checked === false).length} items
                 left
             </div>

@@ -1,10 +1,31 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
+import { Filter } from "./types/types";
 
-describe("List component", () => {
-    test("renders learn react link", () => {
+describe("Test App", () => {
+    test("renders btn", () => {
         render(<App />);
-        const linkElement = screen.queryByRole("list");
-        expect(linkElement).toBeNull();
+
+        const btn = screen.getAllByRole("button");
+        btn.forEach((el) => {
+            fireEvent.click(el);
+            expect(el).toBeInTheDocument();
+        });
+    });
+
+    test("Click filter", () => {
+        render(<App />);
+
+        const btn = screen.getByTestId("btn-all");
+
+        expect(screen.getByTestId("btn-all")).not.toHaveFocus();
+        expect(screen.getByRole("ul")).toBeInTheDocument();
+
+        fireEvent.click(btn, {
+            target: Filter.all,
+        });
+        btn.focus();
+
+        // expect(screen.getByRole("li")).toBeInTheDocument();
     });
 });
