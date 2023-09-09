@@ -26,6 +26,8 @@
     font-size: 25px;
     color: rgb(52, 50, 50);
     transition: 0.7s;
+    width: 90%;
+    user-select: none;
 }
 
 .todoItemLabel {

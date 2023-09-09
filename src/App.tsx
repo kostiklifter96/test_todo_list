@@ -8,6 +8,31 @@ function App() {
     const [todoList, setTodoList] = useState<ITodo[]>([]);
     const [filtered, setFiltered] = useState<ITodo[]>(todoList);
 
+    const todoFilter = useCallback(
+        (status: string = Filter.all) => {
+            if (status === Filter.all) {
+                setFiltered(todoList);
+                localStorage.setItem("filter", JSON.stringify(Filter.all));
+            }
+
+            if (status === Filter.active) {
+                const newTodo = [...todoList].filter((el) => !el.checked);
+                setFiltered(newTodo);
+                localStorage.setItem("filter", JSON.stringify(Filter.active));
+            }
+
+            if (status === Filter.completed) {
+                const newTodo = [...todoList].filter((el) => el.checked);
+                setFiltered(newTodo);
+                localStorage.setItem(
+                    "filter",
+                    JSON.stringify(Filter.completed),
+                );
+            }
+        },
+        [todoList],
+    );
+
     const onSubmit = (data: ITodo) => {
         setTodoList([...todoList, data]);
     };
@@ -42,34 +67,9 @@ function App() {
         );
     };
 
-    const onClickDeleteCompleted = () => {
+    const onClickDeleteCompleted = useCallback(() => {
         setTodoList(todoList.filter((el) => !el.checked));
-    };
-
-    const todoFilter = useCallback(
-        (status: string = Filter.all) => {
-            if (status === Filter.all) {
-                setFiltered(todoList);
-                localStorage.setItem("filter", JSON.stringify(Filter.all));
-            }
-
-            if (status === Filter.active) {
-                const newTodo = [...todoList].filter((el) => !el.checked);
-                setFiltered(newTodo);
-                localStorage.setItem("filter", JSON.stringify(Filter.active));
-            }
-
-            if (status === Filter.completed) {
-                const newTodo = [...todoList].filter((el) => el.checked);
-                setFiltered(newTodo);
-                localStorage.setItem(
-                    "filter",
-                    JSON.stringify(Filter.completed),
-                );
-            }
-        },
-        [todoList],
-    );
+    }, [todoList]);
 
     useEffect(() => {
         if (localStorage.getItem("todo")) {
@@ -92,6 +92,12 @@ function App() {
             todoFilter(filter);
         }
     }, [todoFilter, todoList]);
+
+    useEffect(() => {
+        if (filtered.length < 1) {
+            todoFilter(Filter.all);
+        }
+    }, [filtered.length, onClickDeleteCompleted, todoFilter]);
 
     return (
         <div className='app'>
