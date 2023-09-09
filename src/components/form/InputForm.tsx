@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { FormFields, IInputForm } from "../../types/types";
 import "./inputForm.css";
 
@@ -11,7 +12,7 @@ export const InputForm = ({ onSubmit, filtered }: IInputForm) => {
             return;
         }
         const data = {
-            id: String(Date.now()),
+            id: nanoid(),
             text: e.currentTarget.text?.value,
             checked: false,
         };

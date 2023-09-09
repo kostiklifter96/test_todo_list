@@ -3,10 +3,11 @@ import { ITodoList } from "../../types/types";
 import { TodoItem } from "./TodoItem";
 import "./todoList.css";
 
-export const TodoList = ({ filtered, onChangeChecked }: ITodoList) => {
-    // if (filtered.length < 1) {
-    //     return null;
-    // }
+export const TodoList = ({
+    filtered,
+    onChangeChecked,
+    onChangeText,
+}: ITodoList) => {
     return (
         <ul className='todoList'>
             <TransitionGroup className='todo-list'>
@@ -16,6 +17,7 @@ export const TodoList = ({ filtered, onChangeChecked }: ITodoList) => {
                             key={t.id}
                             {...t}
                             onChangeChecked={onChangeChecked}
+                            onChangeText={onChangeText}
                         />
                     </CSSTransition>
                 ))}

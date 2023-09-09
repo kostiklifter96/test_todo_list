@@ -2,7 +2,7 @@
     margin-top: 20px;
     position: relative;
     display: grid;
-    grid-template-columns: 685px;
+    grid-template-columns: 700px;
     grid-template-rows: 80px;
 }
 .formInput {
@@ -49,7 +49,7 @@
     transform: rotate(0deg);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .form {
         grid-template-columns: 500px;
         grid-template-rows: 80px;
@@ -58,10 +58,10 @@
 
 @media (max-width: 400px) {
     .form {
-        grid-template-columns: 368px;
+        grid-template-columns: 350px;
         grid-template-rows: 80px;
     }
     .formInput {
-        font-size: 26px;
+        font-size: 24px;
     }
 }

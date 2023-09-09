@@ -1,0 +1,19 @@
+.modalInput {
+    width: 97%;
+    height: 25px;
+    border: 2px solid rgb(219, 219, 219);
+    padding: 5px 5px 5px 10px;
+    z-index: 3;
+}
+
+@media (max-width: 800px) {
+    .modalInput {
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px) {
+    .modalInput {
+        width: 82%;
+    }
+}

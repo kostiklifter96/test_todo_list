@@ -1,6 +1,6 @@
 .todoList {
     display: grid;
-    grid-template-columns: 685px;
+    grid-template-columns: 700px;
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
@@ -84,7 +84,11 @@
     transition: opacity 500ms ease-in;
 }
 
-@media (max-width: 700px) {
+.press {
+    font-size: 30px;
+}
+
+@media (max-width: 800px) {
     .todoList {
         grid-template-columns: 500px;
     }
@@ -96,7 +100,7 @@
 
 @media (max-width: 400px) {
     .todoList {
-        grid-template-columns: 368px;
+        grid-template-columns: 350px;
     }
 
     .todoItem {

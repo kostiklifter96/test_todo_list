@@ -16,10 +16,12 @@ export type FormFields = {
 export interface ITodoList {
     filtered: ITodo[];
     onChangeChecked: (id: string) => void;
+    onChangeText: (id: string, newText: string) => void;
 }
 
 export interface ITodoItem extends ITodo {
     onChangeChecked: (id: string) => void;
+    onChangeText: (id: string, newText: string) => void;
 }
 
 export interface IFooterNav {
