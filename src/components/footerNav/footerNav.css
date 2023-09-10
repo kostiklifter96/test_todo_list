@@ -21,22 +21,23 @@
     gap: 5px;
 }
 
-.footerNavBtn > button {
+.footerNavBtn > button:hover {
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+    color: blueviolet;
+}
+
+.footerNavBtnItem {
     border: 1px solid #fff;
     border-radius: 5px;
     background: none;
     height: 30px;
     transition: 0.5s;
     color: rgb(95, 93, 93);
+    cursor: pointer;
 }
 
-.footerNavBtn > button:focus {
-    border: 1px solid rgb(219, 219, 219);
-    border-radius: 5px;
-    color: blueviolet;
-}
-
-.footerNavBtn > button:active {
+.activeBtn {
     border: 1px solid rgb(219, 219, 219);
     border-radius: 5px;
     color: blueviolet;

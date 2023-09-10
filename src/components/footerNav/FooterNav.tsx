@@ -1,4 +1,6 @@
-import { Filter, IFooterNav } from "../../types/types";
+import { useEffect } from "react";
+import { useActiveBtns } from "../../hooks/useActiveBtns";
+import { IFooterNav } from "../../types/types";
 import "./footerNav.css";
 
 export const FooterNav = ({
@@ -6,6 +8,20 @@ export const FooterNav = ({
     todoFilter,
     onClickDeleteCompleted,
 }: IFooterNav) => {
+    const {
+        allListBtn,
+        activeListBtn,
+        completeListBtn,
+        activeListHandler,
+        allListHandler,
+        completeListHandler,
+        localStorageFilterBtn,
+    } = useActiveBtns({ todoFilter });
+
+    useEffect(() => {
+        localStorageFilterBtn();
+    }, [localStorageFilterBtn]);
+
     return (
         <div className='footerNav'>
             <div className='itemsLeft'>
@@ -13,11 +29,26 @@ export const FooterNav = ({
                 left
             </div>
             <div className='footerNavBtn'>
-                <button onClick={() => todoFilter(Filter.all)}>All</button>
-                <button onClick={() => todoFilter(Filter.active)}>
+                <button
+                    className={`footerNavBtnItem ${allListBtn && " activeBtn"}`}
+                    onClick={allListHandler}
+                >
+                    All
+                </button>
+                <button
+                    className={`footerNavBtnItem ${
+                        activeListBtn && " activeBtn"
+                    }`}
+                    onClick={activeListHandler}
+                >
                     Active
                 </button>
-                <button onClick={() => todoFilter(Filter.completed)}>
+                <button
+                    className={`footerNavBtnItem ${
+                        completeListBtn && " activeBtn"
+                    }`}
+                    onClick={completeListHandler}
+                >
                     Completed
                 </button>
             </div>

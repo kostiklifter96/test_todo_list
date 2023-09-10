@@ -1,11 +1,6 @@
-import { Dispatch, useState } from "react";
+import { useState } from "react";
+import { IModal } from "../../types/types";
 import "./modal.css";
-interface IModal {
-    text: string;
-    id: string;
-    setShow: Dispatch<React.SetStateAction<boolean>>;
-    onChangeText: (id: string, newText: string) => void;
-}
 
 export const Modal = ({ text, id, onChangeText, setShow }: IModal) => {
     const [newText, setNewText] = useState<string>(text);
