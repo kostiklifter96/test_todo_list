@@ -6,6 +6,13 @@ export interface ITodo {
     checked: boolean;
 }
 
+export interface ISendEmailMessage extends ITodo {
+    subject:
+        | "You have a new note! "
+        | "You changed the note status! "
+        | "You changed the text of the note! ";
+}
+
 export interface IInputForm {
     onSubmit: (data: ITodo) => void;
     filtered: ITodo[];
